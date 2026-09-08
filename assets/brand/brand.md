@@ -33,7 +33,7 @@ Source: Team17 press kit (Aug 2026) and Steam store assets. Assets in this folde
 
 ## Voice and copy (house rule, applies to every tool)
 Use military terminology and slang throughout, in labels, buttons, empty states, errors and jokes. Keep it readable: the term should still tell a newcomer what the control does.
-- Release moment = **H-Hour**. "H-Hour in …", "Your local H-Hour".
+- Release wording stays plain: "Early Access deploys in", "Steam Early Access unlock". Do not rename the release itself (no H-Hour); the slang goes on controls and flavour text, not on facts about the game.
 - Discord = **comms** ("Report to comms"). Steam store = **requisition**. Visitor counter = **roll call / muster**.
 - Floating mini window = **post a sentry**. Live state = "Servers live. Deploy." / "Go go go".
 - Micro-labels stay in the press-kit terminal style: `//MESSAGE.INITIATED`, `>INTEL.RECEIVED...`, `// ROLL CALL //`.
