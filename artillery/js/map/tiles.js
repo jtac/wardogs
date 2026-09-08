@@ -165,7 +165,7 @@ function loadTile(
         new Image();
 
     // Keep the canvas readable when tiles come from the asset CDN.
-    image.crossOrigin = 'anonymous';
+    // crossOrigin removed: upstream tile CDN only allows wardogs-artillery.com; no canvas pixel readback needed
 
     image.decoding =
         'async';
