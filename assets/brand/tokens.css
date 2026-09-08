@@ -1,0 +1,6 @@
+:root{
+  --wd-gold:#e2ac2b; --wd-ink:#2a2a2a; --wd-ground:#0d0c0a; --wd-panel:#16140f;
+  --wd-bone:#ffeee2; --wd-muted:#8a7f6a; --wd-sunset:#976b2e; --wd-dust:#40321a; --wd-line:rgba(255,238,226,.18);
+  --wd-display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --wd-body:"Barlow","Helvetica Neue",Arial,sans-serif;
+}

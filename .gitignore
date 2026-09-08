@@ -1,0 +1,6 @@
+# Publisher press kit and raw brand assets stay local
+assets/presskit/
+assets/steam/
+assets/brand/*.png
+assets/brand/*.svg
+.DS_Store
