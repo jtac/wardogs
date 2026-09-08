@@ -9,11 +9,16 @@ body{min-height:100vh;display:flex;flex-direction:column}
 .frame{position:fixed;inset:14px;border:1px solid var(--line);pointer-events:none;
   -webkit-mask:linear-gradient(#000,#000) top left/40px 40px no-repeat,linear-gradient(#000,#000) top right/40px 40px no-repeat,linear-gradient(#000,#000) bottom left/40px 40px no-repeat,linear-gradient(#000,#000) bottom right/40px 40px no-repeat;
   mask:linear-gradient(#000,#000) top left/40px 40px no-repeat,linear-gradient(#000,#000) top right/40px 40px no-repeat,linear-gradient(#000,#000) bottom left/40px 40px no-repeat,linear-gradient(#000,#000) bottom right/40px 40px no-repeat}
-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:28px 32px 8px;max-width:820px;width:100%;margin:0 auto}
-.logo{width:180px;height:auto}
-nav{display:flex;gap:18px;font-family:var(--display);font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:13px}
-nav a{color:var(--muted);text-decoration:none}nav a:hover,nav a:focus-visible{color:var(--gold);outline:none}nav a[aria-current]{color:var(--bone)}
+.top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:26px 32px 0;max-width:820px;width:100%;margin:0 auto}
+.top .home{display:flex;align-items:center;min-height:24px}
+.top nav{display:flex;gap:20px;font-family:var(--display);font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:13px;margin-left:auto}
+.top nav a{color:var(--muted);text-decoration:none;white-space:nowrap}.top nav a:hover,.top nav a:focus-visible{color:var(--gold);outline:none}
+.top nav a[aria-current]{color:var(--bone);border-bottom:1px solid var(--gold);padding-bottom:2px}
+.top nav .ext span{font-size:11px;position:relative;top:-1px}
+@media (max-width:560px){.top{padding:20px 20px 0}.top nav{gap:14px;font-size:12px}}
+.logo{width:170px;height:auto}
 main{flex:1;width:100%;max-width:820px;margin:0 auto;padding:8px 32px 48px;display:flex;flex-direction:column;gap:22px}
+.back{margin:14px 0 -6px;font-family:var(--display);font-size:12px;letter-spacing:.18em;text-transform:uppercase}.back a{color:var(--muted);text-decoration:none}.back a:hover{color:var(--gold)}
 h1{font-family:var(--display);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:20px;margin:0;text-align:center;color:var(--bone)}
 h1 .sl{color:var(--gold)}
 .sub{font-family:var(--display);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:-16px}
@@ -48,11 +53,11 @@ textarea{min-height:88px;resize:vertical}
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out;z-index:9}
 .lightbox.on{display:flex}.lightbox img{max-width:96vw;max-height:96vh}
 footer{padding:0 24px 22px;font-size:12px;color:var(--muted);text-align:center;opacity:.8}
-@media (max-width:560px){header{padding:22px 20px 4px}main{padding:8px 20px 40px}.row{grid-template-columns:1fr}.logo{width:140px}}
+@media (max-width:560px){main{padding:8px 20px 40px}.row{grid-template-columns:1fr}.logo{width:140px}}
 </style>
 <div class="frame"></div>
-<header>
-  <a href="../countdown/" aria-label="WARDOGS home"><svg class="logo" viewBox="0 0 2467 489" role="img" aria-label="WARDOGS"><g id="Layer_1-2" data-name="Layer 1">
+<header class="top">
+  <a class="home" href="../" aria-label="WARDOGS clock"><svg class="logo" viewBox="0 0 2467 489" role="img" aria-label="WARDOGS"><g id="Layer_1-2" data-name="Layer 1">
     <path fill="#fff" d="m1438.55,27.7v307.88h191.4c13.14-13.19,20.52-20.6,33.66-33.79V61.48c-13.1-13.18-20.48-20.59-33.63-33.78h-191.43Zm71.25,63.92h83.52v180.48h-83.52V91.63h0Z"/>
     <path fill="#fff" d="m1704.13,61.49v240.29c13.16,13.19,20.56,20.6,33.73,33.8h164.81c13.16-13.19,20.55-20.6,33.72-33.8V61.49c-13.16-13.19-20.55-20.6-33.72-33.79h-164.81c-13.16,13.18-20.56,20.59-33.73,33.79Zm161.35,30.15v180.48h-90.29V91.64h90.29Z"/>
     <path fill="#fff" d="m1976.91,61.49v240.29c13.19,13.19,20.6,20.6,33.8,33.8h157.45c13.19-13.19,20.61-20.6,33.8-33.8v-143.35h-119.4v54.48h49.73v60.18h-85.28V90.7h84.34v34.58h70.61v-63.79c-13.19-13.19-20.6-20.6-33.8-33.79h-157.45c-13.19,13.18-20.61,20.59-33.8,33.79Z"/>
@@ -66,9 +71,10 @@ footer{padding:0 24px 22px;font-size:12px;color:var(--muted);text-align:center;o
     <path fill="#fff" d="m664.61,399.6c.27,0,.49.11.66.33.22.16.33.38.33.65v8.04c0,.27-.11.52-.33.74-.16.16-.38.24-.66.24h-14.68c-.27,0-.41.14-.41.41v46.01c0,.27-.11.52-.33.73-.16.17-.38.25-.66.25h-9.59c-.27,0-.52-.08-.74-.25-.16-.21-.25-.46-.25-.73v-46.01c0-.27-.14-.41-.41-.41h-14.27c-.27,0-.52-.08-.74-.24-.16-.22-.25-.47-.25-.74v-8.04c0-.27.08-.49.25-.65.22-.22.47-.33.74-.33h41.33Zm69.08,57.4c-.54,0-.9-.27-1.06-.82l-2.46-8.04c-.11-.21-.25-.32-.41-.32h-20.17c-.17,0-.31.11-.41.32l-2.38,8.04c-.17.55-.52.82-1.07.82h-10.41c-.33,0-.58-.08-.74-.25-.16-.21-.19-.52-.08-.9l17.71-55.43c.16-.55.52-.82,1.07-.82h12.87c.55,0,.9.27,1.07.82l17.71,55.43c.05.11.08.25.08.41,0,.49-.3.74-.9.74h-10.42Zm-21.56-18.61c-.06.32.05.49.33.49h14.43c.33,0,.43-.17.33-.49l-7.38-24.36c-.06-.22-.14-.3-.25-.24-.11,0-.19.08-.25.24l-7.21,24.36Zm88.02,19.27c-4.27,0-8.01-.82-11.24-2.46-3.22-1.7-5.71-4.05-7.46-7.06-1.75-3-2.62-6.47-2.62-10.41v-18.94c0-3.94.87-7.41,2.62-10.42,1.75-3,4.24-5.33,7.46-6.97,3.23-1.64,6.97-2.46,11.24-2.46s7.9.8,11.07,2.38c3.22,1.53,5.71,3.75,7.46,6.64,1.8,2.85,2.71,6.15,2.71,9.93,0,.49-.33.79-.99.9l-9.59.57h-.17c-.54,0-.82-.3-.82-.9,0-2.9-.9-5.22-2.7-6.97-1.75-1.75-4.08-2.62-6.97-2.62s-5.33.87-7.14,2.62c-1.75,1.75-2.62,4.07-2.62,6.97v19.76c0,2.84.87,5.14,2.62,6.89,1.81,1.75,4.19,2.62,7.14,2.62s5.22-.87,6.97-2.62c1.8-1.75,2.7-4.05,2.7-6.89,0-.6.33-.9.99-.9l9.59.41c.27,0,.49.08.66.25.22.16.33.35.33.57,0,3.77-.91,7.11-2.71,10-1.75,2.9-4.24,5.14-7.46,6.73-3.17,1.58-6.86,2.38-11.07,2.38Zm98.2-58.06c.27,0,.49.11.66.33.21.16.32.38.32.65v8.04c0,.27-.11.52-.32.74-.17.16-.39.24-.66.24h-14.68c-.27,0-.41.14-.41.41v46.01c0,.27-.11.52-.33.73-.16.17-.38.25-.65.25h-9.6c-.27,0-.52-.08-.73-.25-.17-.21-.25-.46-.25-.73v-46.01c0-.27-.14-.41-.41-.41h-14.27c-.27,0-.52-.08-.74-.24-.16-.22-.24-.47-.24-.74v-8.04c0-.27.08-.49.24-.65.22-.22.47-.33.74-.33h41.33Zm38.86,57.4c-.27,0-.51-.08-.73-.25-.17-.21-.25-.46-.25-.73v-55.44c0-.27.08-.49.25-.65.22-.22.46-.33.73-.33h9.6c.27,0,.49.11.65.33.22.16.33.38.33.65v55.44c0,.27-.11.52-.33.73-.16.17-.38.25-.65.25h-9.6Zm70.25.66c-4.26,0-8.01-.82-11.23-2.46-3.23-1.7-5.71-4.05-7.46-7.06-1.75-3-2.63-6.47-2.63-10.41v-18.94c0-3.94.88-7.41,2.63-10.42,1.75-3,4.23-5.33,7.46-6.97,3.22-1.64,6.97-2.46,11.23-2.46s7.9.8,11.07,2.38c3.23,1.53,5.72,3.75,7.47,6.64,1.8,2.85,2.7,6.15,2.7,9.93,0,.49-.33.79-.98.9l-9.6.57h-.16c-.55,0-.82-.3-.82-.9,0-2.9-.9-5.22-2.71-6.97-1.75-1.75-4.07-2.62-6.97-2.62s-5.33.87-7.13,2.62c-1.75,1.75-2.62,4.07-2.62,6.97v19.76c0,2.84.87,5.14,2.62,6.89,1.8,1.75,4.18,2.62,7.13,2.62s5.22-.87,6.97-2.62c1.81-1.75,2.71-4.05,2.71-6.89,0-.6.33-.9.98-.9l9.6.41c.27,0,.49.08.65.25.22.16.33.35.33.57,0,3.77-.9,7.11-2.7,10-1.75,2.9-4.24,5.14-7.47,6.73-3.17,1.58-6.86,2.38-11.07,2.38Zm94.45-.66c-.55,0-.9-.27-1.07-.82l-2.46-8.04c-.11-.21-.24-.32-.41-.32h-20.17c-.16,0-.3.11-.41.32l-2.38,8.04c-.16.55-.52.82-1.06.82h-10.42c-.33,0-.57-.08-.74-.25-.16-.21-.19-.52-.08-.9l17.71-55.43c.17-.55.52-.82,1.07-.82h12.87c.55,0,.91.27,1.07.82l17.71,55.43c.06.11.08.25.08.41,0,.49-.3.74-.9.74h-10.41Zm-21.57-18.61c-.05.32.06.49.33.49h14.43c.33,0,.44-.17.33-.49l-7.38-24.36c-.05-.22-.14-.3-.25-.24-.1,0-.19.08-.24.24l-7.22,24.36Zm70.6,18.61c-.28,0-.52-.08-.74-.25-.17-.21-.25-.46-.25-.73v-55.44c0-.27.08-.49.25-.65.22-.22.46-.33.74-.33h9.59c.27,0,.49.11.66.33.22.16.32.38.32.65v46.09c0,.27.14.41.41.41h26.82c.27,0,.49.11.65.33.22.16.33.38.33.65v7.96c0,.27-.11.52-.33.73-.16.17-.38.25-.65.25h-37.8Z"/>
   </g>
 </svg></a>
-  <nav><a href="../countdown/">Clock</a><a href="../dispatches/" aria-current="page">Dispatches</a><a href="https://discordapp.com/channels/300531301755256832/739553261282918522" target="_blank" rel="noopener">Comms</a></nav>
+  <nav><a href="../">Clock</a><a href="./" aria-current="page">Dispatches</a><a class="ext" href="https://discordapp.com/channels/300531301755256832/739553261282918522" target="_blank" rel="noopener">Comms / Discord <span aria-hidden="true">↗</span></a></nav>
 </header>
 <main>
+  <p class="back"><a href="../">◀ Back to the clock</a></p>
   <h1><span class="sl">//</span> Dispatches <span class="sl">//</span></h1>
   <div class="sub"><b>&gt;</b>SQUAD.CHANNEL.OPEN &nbsp;·&nbsp; messages, updates and recon from the field</div>
 
