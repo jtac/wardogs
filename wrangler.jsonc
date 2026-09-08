@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "wardogs",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-09-01",
+  "assets": { "directory": ".", "binding": "ASSETS", "not_found_handling": "404-page" },
+  "d1_databases": [{ "binding": "DB", "database_name": "wardogs", "database_id": "77e31c7f-468d-4a06-82c1-5501342866b3" }],
+  "kv_namespaces": [{ "binding": "RECON", "id": "ad7936c9f0bf4a67b4457e310c68650a" }],
+  "observability": { "enabled": true }
+}

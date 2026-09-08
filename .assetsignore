@@ -1,0 +1,9 @@
+assets/
+src/
+node_modules/
+.git/
+.wrangler/
+*.md
+wrangler.jsonc
+.gitignore
+.assetsignore
