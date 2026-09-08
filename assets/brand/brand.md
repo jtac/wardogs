@@ -39,3 +39,8 @@ Use military terminology and slang throughout, in labels, buttons, empty states,
 - Micro-labels stay in the press-kit terminal style: `//MESSAGE.INITIATED`, `>INTEL.RECEIVED...`, `// ROLL CALL //`.
 - Humour is dry and deadpan, from the point of view of "Command" addressing the squad. One joke per surface, never stacked.
 - Future functionality follows the same rule: loadouts are "kit", a schedule is "ops board", stats are "after-action report", a team roster is "the squad".
+
+## Hosting (as of 2026-09-08)
+- Canonical site: Cloudflare Worker "wardogs" with static assets from repo root, https://wardogs.john-76d.workers.dev. Deploy with `npx wrangler deploy`.
+- API in src/worker.js; D1 database "wardogs" (table dispatches); KV namespace RECON for pictures; secret SQUAD_PASS is the shared code word for posting.
+- GitHub Pages (jtac.github.io/wardogs) is a static mirror of the clock only; the dispatch board needs the Worker.
