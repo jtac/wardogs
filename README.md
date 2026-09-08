@@ -1,6 +1,6 @@
 # wardogs
 
-Fan-made tools for playing WARDOGS with friends. Live at https://wardogs.john-76d.workers.dev/ (GitHub Pages mirrors the clock only).
+Fan-made tools for playing WARDOGS with friends. Live at https://goblincrew.wardogs.workers.dev/ (Worker "goblincrew" on the "wardogs" account subdomain) (GitHub Pages mirrors the clock only).
 
 - `index.html` — Deployment Clock, the front page: countdown to the Steam Early Access unlock (10 Sep 2026, 16:00 UTC), roll call, sentry mini window
 - `dispatches/` — squad message board with pictures (needs the Worker API in `src/worker.js`)
